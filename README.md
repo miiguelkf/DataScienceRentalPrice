@@ -61,7 +61,7 @@ In this last part I did the following steps:
     * Selected top variables that were responsible for a 99% cumulative importance. Giving me a reduction of 40% in the number of variables (56 to 31).
 4. Retrained all models using these selected variables.
 
-Belowe is the comparison between those two trainings. Its clear that the removal of 25 features did almost no difference in the model performance.
+When comparing those two trainings its clear that the removal of 25 features did almost no difference in the model performance.
 
 Model | MAE Without Feature Selection |	MAE With Feature Selection
 ------ | ----------------------- | -------------------------
@@ -74,6 +74,5 @@ XGBoost | 967.861749 | 971.338345
 .
 
 
-That's how the result looks like when using our best model (Random Forest)
-
+Below is plotted the final result using Random Forest (with feature selection)
 ![alt text](result_img.png)
