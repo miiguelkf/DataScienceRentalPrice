@@ -41,4 +41,39 @@ After the data was collected I did some cleaning to let it more usable for our m
 * Extracted the rental type (house, apartment, studio) and district from the title column
 * Removed unnecessary text from area, garage and floor
 * Parsed bedroom and suite quantity from "bedroom" column
-* Removed unnecessary text from all the "price" columns
+* Removed unnecessary text from all the "price" columns (rent, condominium, taxes, fire insurance, services and total)
+
+### EDA
+
+In this part I've tried to find some correlation between all my variables and the target (rental price).
+
+Here are some plots generated in this part:
+
+![alt text](eda_img.png)
+
+### Model Building
+
+In this last part I did the following steps:
+
+1. Transformed all my categorical variables into dummy variables.
+2. Trained some regression models (Linear Regression, Decision Tree, Random Forest, XGBoost)
+3. Did a feature selection using the Random Forest model
+    * Selected top variables that were responsible for a 99% cumulative importance. Giving me a reduction of 40% in the number of variables (56 to 31).
+4. Retrained all models using these selected variables.
+
+Belowe is the comparison between those two trainings. Its clear that the removal of 25 features did almost no difference in the model performance.
+
+Model | MAE Without Feature Selection |	MAE With Feature Selection
+------ | ----------------------- | -------------------------
+Linear Regression |	1072.248529 | 1079.178736
+Decision Tree |	773.125481 | 777.398131
+Random Forest |	747.179079 | 749.784003
+XGBoost | 967.861749 | 971.338345
+
+
+.
+
+
+That's how the result looks like when using our best model (Random Forest)
+
+![alt text](result_img.png)
